@@ -50,3 +50,37 @@
 * A **leaf** of a tree has no children
 * Define **depth** of node `<X>` to be length of path from `<X>` to the root
 * Define **height** of node `<X>` to be max depth of any node in the subtree rooted at `<X>`
+
+### Exercises
+
+Implement functions in `exercises/binary_tree.go`. Provide tests for each function.
+
+#### Examples
+
+```
+        _______3______
+       /              \
+    ___5__          ___1__
+   /      \        /      \
+   6      _2_     0        8
+         /   \
+         7    4
+```
+
+For the above tree,
+
+* `nodeCount` must return `9`.
+* `height` must return `3`,
+* `inorderTraversal` visits nodes in the following order `6 5 7 2 4 3 0 1 8`.
+
+The inverted tree to the above tree is
+
+```
+        _______3______
+       /              \
+    ___1__          ___5__
+   /      \        /      \
+   8      0      _2_       6
+                /   \
+               4     7
+```
