@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type node struct {
 	val   int
 	left  *node
@@ -61,5 +63,21 @@ func invertTree(root *node) {
 	invertTree(root.right)
 }
 
+func large22() *node {
+	return &node{val: 2,
+		left: &node{val: 1},
+		right: &node{val: 4,
+			left: &node{val: 3},
+			right: &node{val: 5,
+				left: &node{val: 9},
+			},
+		}}
+}
+
 func main() {
+	a := large22()
+	inorderTraversal(a, func(v int) { fmt.Println(v) })
+	invertTree(a)
+	inorderTraversal(a, func(v int) { fmt.Println(v) })
+
 }
