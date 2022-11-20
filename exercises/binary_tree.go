@@ -32,18 +32,36 @@ func height(root *node) int {
 // 2. visits the current node
 // 3. visits the right subtree.
 func inorderTraversal(root *node, sink func(v int)) {
-	// TODO
+	if root == nil {
+		return
+	}
+	inorderTraversal(root.left, sink)
+	sink(root.val)
+	inorderTraversal(root.right, sink)
 }
 
 // equal checks if two trees are equivalent.
 func equal(a, b *node) bool {
-	// TODO
+	if a == nil && b == nil {
+		return true
+	}
+	if a == nil && b != nil || a != nil && b == nil || a.val != b.val {
+		return false
+	}
+	if equal(a.left, b.left) {
+		return equal(a.right, b.right)
+	}
 	return false
 }
 
 // invertTree inverts a tree, so that the left and the right subtrees are swapped.
 func invertTree(root *node) {
-	// TODO
+	if root == nil {
+		return
+	}
+	root.left, root.right = root.right, root.left
+	invertTree(root.left)
+	invertTree(root.right)
 }
 
 func main() {
