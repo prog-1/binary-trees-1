@@ -4,7 +4,7 @@ Write a program that finds the nearest common ancestor. The program should conta
 a function that:
 
 - Accepts a tree and two node pointers (not element values, but node pointers!)
-- The function must return the closest common ancestor.
+- The function must return a pointer to the closest common ancestor node.
 
 While implementing the program, you are allowed to use uni-directional binary trees only. It
 means that you cannot have pointers to the parent elements.
