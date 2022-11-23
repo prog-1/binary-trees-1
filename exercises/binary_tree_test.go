@@ -7,10 +7,10 @@ import (
 
 type testCase struct {
 	name          string
-	input         func() *node // Func ensures each test wil get its own tree.
+	input         func() *node
 	wantNodeCount int
 	wantHeight    int
-	wantInorder   []int // Again, to ensure that we get fresh values.
+	wantInorder   []int
 	wantCompRes   []bool
 	wantInverted  func() *node
 }
@@ -57,7 +57,7 @@ func TestInorderTraversal(t *testing.T) {
 
 func TestEqual(t *testing.T) {
 	for _, tcA := range testCases {
-		for i, tcB := range testCases { // Comparing each test to itself and all others
+		for i, tcB := range testCases {
 			if equal(tcA.input(), tcB.input()) != tcA.wantCompRes[i] {
 				t.Errorf("got = %v, want = %v", !tcA.wantCompRes[i], tcA.wantCompRes[i])
 			}
