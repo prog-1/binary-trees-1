@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type node struct {
 	val   int
 	left  *node
@@ -32,19 +34,50 @@ func height(root *node) int {
 // 2. visits the current node
 // 3. visits the right subtree.
 func inorderTraversal(root *node, sink func(v int)) {
-	// TODO
+	if root == nil {
+		return
+	}
+	inorderTraversal(root.left, sink)
+	sink(root.val)
+	inorderTraversal(root.right, sink)
 }
 
 // equal checks if two trees are equivalent.
 func equal(a, b *node) bool {
-	// TODO
+	if a == nil || b == nil {
+		return a == b
+	}
+	if a.val == b.val {
+		return equal(a.left, b.left) && equal(a.right, b.right)
+	}
 	return false
 }
 
 // invertTree inverts a tree, so that the left and the right subtrees are swapped.
 func invertTree(root *node) {
-	// TODO
+	if root == nil {
+		return
+	}
+	root.left, root.right = root.right, root.left
+	invertTree(root.left)
+	invertTree(root.right)
+}
+
+func large22() *node {
+	return &node{val: 2,
+		left: &node{val: 1},
+		right: &node{val: 4,
+			left: &node{val: 3},
+			right: &node{val: 5,
+				left: &node{val: 9},
+			},
+		}}
 }
 
 func main() {
+	a := large22()
+	inorderTraversal(a, func(v int) { fmt.Println(v) })
+	invertTree(a)
+	inorderTraversal(a, func(v int) { fmt.Println(v) })
+
 }
