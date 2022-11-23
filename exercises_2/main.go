@@ -11,16 +11,12 @@ func find(t, a, b *node) *node {
 	if t == nil {
 		return nil
 	}
-	var tmp *node
 	if t == a || t == b {
-		tmp = t
+		return t
 	}
 	lefta := find(t.left, a, b)
 	righta := find(t.right, a, b)
 
-	if tmp != nil {
-		return tmp
-	}
 	if lefta != nil && righta != nil {
 		return t
 	}
