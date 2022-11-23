@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type node struct {
 	val         int
 	left, right *node
@@ -41,8 +39,5 @@ func FingAndGetParents(t, a *node) (parents []*node) {
 }
 
 func main() {
-	a := &node{val: 5, left: &node{val: 9}, right: &node{val: 10}}
-	b := &node{val: 8}
-	ancesr := nearestCommonAncestor(&node{val: 1, left: &node{val: 2, left: &node{val: 4, right: b}, right: a}, right: &node{val: 3}}, a, b)
-	fmt.Println(ancesr)
+
 }
