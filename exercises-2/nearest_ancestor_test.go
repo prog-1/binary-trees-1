@@ -87,7 +87,7 @@ func TestNearestAncestor(t *testing.T) {
 		{name: "direct parent 11", t: tree(9),
 			a:    child(right, right, left, right, left, left, right),
 			b:    child(right, right, left, left, left, left, right, left),
-			want: child(right, right, left. left)},
+			want: child(right, right, left, left)},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			root := tc.t()
